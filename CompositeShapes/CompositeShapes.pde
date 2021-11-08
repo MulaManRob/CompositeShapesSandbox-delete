@@ -6,6 +6,11 @@ int noseX1, noseY1, noseX2, noseY2, noseX3, noseY3;
 float mouthX1, mouthY1, mouthX2, mouthY2, mouthThick;
 color purple = #C511EA;
 color measlesColor = purple;
+color skin = #E5AF58;
+color faceColor = skin;
+color white = #F5F1EB;
+color eyeColor = white;
+
 float measlesX, measlesY, measlesDiameter;
 //
 fullScreen ();
@@ -13,13 +18,15 @@ fullScreen ();
 faceX = width/2;
 faceY = height/2;
 faceDiameter = height;
+fill(faceColor);
+fill(reset);
 leftEyeX = width*3/8;
 leftEyeY = height*1/4;
 leftEyeDiameter = height/7;
 rightEyeX = width*5/8;
 rightEyeY = leftEyeY;
 rightEyeDiameter = leftEyeDiameter;
-noseX1 = width/2;
+noseX1 = width*1/2;
 noseY1 = height*2/5;
 noseX2 = width*7/16;
 noseY2 = height*6/10;
