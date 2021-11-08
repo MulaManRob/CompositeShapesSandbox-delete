@@ -9,7 +9,7 @@ color measlesColor = purple;
 color skin = #E5AF58;
 color faceColor = skin;
 color white = #F5F1EB;
-color eyeColor = white;
+color EyeColor = white;
 
 float measlesX, measlesY, measlesDiameter;
 //
@@ -19,10 +19,9 @@ faceX = width/2;
 faceY = height/2;
 faceDiameter = height;
 fill(faceColor);
-fill(reset);
 leftEyeX = width*3/8;
 leftEyeY = height*1/4;
-leftEyeDiameter = height/7;
+leftEyeDiameter = height/4;
 rightEyeX = width*5/8;
 rightEyeY = leftEyeY;
 rightEyeDiameter = leftEyeDiameter;
@@ -36,7 +35,7 @@ mouthX1 = leftEyeX;
 mouthY1 = height*3/4;
 mouthX2 = rightEyeX;
 mouthY2 = mouthY1;
-mouthThick = 15;
+mouthThick = 25;
 reset = 1;
 //
 ellipse(faceX, faceY, faceDiameter, faceDiameter);
