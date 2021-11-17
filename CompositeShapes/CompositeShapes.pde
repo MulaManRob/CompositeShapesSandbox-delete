@@ -1,55 +1,63 @@
-int reset;
-int faceX, faceY, faceDiameter;
-int leftEyeX, leftEyeY, leftEyeDiameter;
-int rightEyeX, rightEyeY, rightEyeDiameter;
-int noseX1, noseY1, noseX2, noseY2, noseX3, noseY3;
-float mouthX1, mouthY1, mouthX2, mouthY2, mouthThick;
-color purple = #C511EA;
-color measlesColor = purple;
-color skin = #E5AF58;
-color faceColor = skin;
-color white = #F5F1EB;
-color EyeColor = white;
-
-float measlesX, measlesY, measlesDiameter;
+//Measles
 //
-fullScreen ();
+//Global Variables
+float rectX, rectY, rectWidth, rectHeight;
+float faceX, faceY, faceDiameter;
+float leftEyeX, leftEyeY, rightEyeX, rightEyeY, eyeDiameter;
+float noseX1, noseY1, noseX2, noseY2, noseX3, noseY3;
+float mouthX1, mouthY1, mouthX2, mouthY2;
+float mouthThick, reset;
+float measleX, measleY, measleDiameter;
+color measlesColour=#FF030B, resetColour=#FFFFFF;
 //
-faceX = width/2;
-faceY = height/2;
-faceDiameter = height;
-fill(faceColor);
-leftEyeX = width*3/8;
-leftEyeY = height*1/4;
-leftEyeDiameter = height/4;
-rightEyeX = width*5/8;
-rightEyeY = leftEyeY;
-rightEyeDiameter = leftEyeDiameter;
-noseX1 = width*1/2;
-noseY1 = height*2/5;
-noseX2 = width*7/16;
-noseY2 = height*6/10;
-noseX3 = width*9/16;
-noseY3 = noseY2;
-mouthX1 = leftEyeX;
-mouthY1 = height*3/4;
-mouthX2 = rightEyeX;
-mouthY2 = mouthY1;
-mouthThick = 25;
-reset = 1;
+void setup() {
+  //Geometry
+  fullScreen();
+  //
+  //Population
+  rectX = width*1/2 - height*1/2;
+  rectY = height * 0;
+  rectWidth = height;
+  rectHeight = height;
+  faceX = width*1/2;
+  faceY = height*1/2;
+  faceDiameter = height; //smallest dimension
+  eyeDiameter = width*1/8;
+  leftEyeX = width*3/8;
+  leftEyeY = height*1/4;
+  rightEyeX = width*5/8;
+  rightEyeY = leftEyeY;
+  noseX1 = faceX;
+  noseY1 = height*2/5;
+  noseX2 = leftEyeX;
+  noseY2 = faceY;
+  noseX3 = rightEyeX;
+  noseY3 = faceY;
+  mouthX1 = leftEyeX;
+  mouthY1 = height*3/4;
+  mouthX2 = rightEyeX;
+  mouthY2 = mouthY1;
+  mouthThick = 15;
+  reset = 1;
+  //
+}//End setup()
 //
-ellipse(faceX, faceY, faceDiameter, faceDiameter);
-ellipse(leftEyeX, leftEyeY, leftEyeDiameter, leftEyeDiameter);
-ellipse(rightEyeX, rightEyeY, rightEyeDiameter, rightEyeDiameter);
-triangle(noseX1, noseY1, noseX2, noseY2, noseX3, noseY3);
-strokeWeight(mouthThick);
-line(mouthX1, mouthY1, mouthX2, mouthY2);
-strokeWeight(reset);
-//
-measlesX = random(width);
-measlesY = random(height);
-measlesDiameter = random(height*1/20, height*1/10);
-fill(measlesColor);
-//Parameters are randomly set ;)
-ellipse(measlesX, measlesY, measlesDiameter, measlesDiameter);
-fill(reset);
+void draw() {
+  //Population that changes
+  measleX = random(width);
+  measleY = random(height);
+  measleDiameter = random(width*1/30, width*1/10);
+  //
+  //Canvas
+  rect(rectX, rectY, rectWidth, rectHeight);
+  ellipse(faceX, faceY, faceDiameter, faceDiameter);
+  ellipse(leftEyeX, leftEyeY, eyeDiameter, eyeDiameter);
+  ellipse(rightEyeX, rightEyeY, eyeDiameter, eyeDiameter);
+  triangle(noseX1, noseY1, noseX2, noseY2, noseX3, noseY3);
+  strokeWeight(mouthThick);
+  line(mouthX1, mouthY1, mouthX2, mouthY2);
+  strokeWeight(reset);
+  fill(measlesColour);
+  ellipse(measleX, measleY, measleDiameter, measleDiameter);
+  fill(resetColour);
+}//End draw()
