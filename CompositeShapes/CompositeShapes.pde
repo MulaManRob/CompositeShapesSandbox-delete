@@ -5,7 +5,7 @@ float rightEyeX, rightEyeY;
 float noseX1, noseY1, noseX2, noseY2, noseX3, noseY3;
 float mouthX1, mouthY1, mouthX2, mouthY2, mouthThick;
 float measleX, measleY, measleDiameter, measlesBox;
-color purple = #F2A4F2;
+color green = #18A711;
 float reset;
 color resetColour=#FFFFFF;
 //
@@ -35,7 +35,7 @@ void setup() {
   mouthY1 = displayHeight*3/4;
   mouthX2 = rightEyeX;
   mouthY2 = mouthY1;
-  mouthThick = 10;
+  mouthThick = 45;
   reset = 1;
   //
   rect(rectX, rectY, rectdisplayWidth, rectdisplayHeight);
@@ -53,11 +53,11 @@ void draw() {
   //
   //Canvas
   
-  fill (purple);
+  fill (green);
   ellipse(leftEyeX, leftEyeY, eyeDiameter, eyeDiameter); 
-  fill (purple);
+  fill (green);
   ellipse(rightEyeX, rightEyeY, eyeDiameter, eyeDiameter);
-  fill (purple);
+  fill (green);
   triangle(noseX1, noseY1, noseX2, noseY2, noseX3, noseY3);
   strokeWeight(mouthThick); 
   line(mouthX1, mouthY1, mouthX2, mouthY2);
